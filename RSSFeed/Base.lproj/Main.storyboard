@@ -101,7 +101,9 @@
                             <outlet property="delegate" destination="aHu-pK-AvV" id="WMM-lt-RQ0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Appcoda Tutorial" id="j6a-1c-ACH"/>
+                    <navigationItem key="navigationItem" title="Appcoda Tutorial" id="j6a-1c-ACH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fBM-Pc-YQZ"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4U-9t-avB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +128,7 @@
         <!--Split View Controller-->
         <scene sceneID="Dcb-cr-5Yx">
             <objects>
-                <splitViewController id="Mbu-BV-9Ln" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="idSplitViewController" id="Mbu-BV-9Ln" sceneMemberID="viewController">
                     <connections>
                         <segue destination="ysq-7T-wpz" kind="relationship" relationship="masterViewController" id="b91-XA-Nf2"/>
                         <segue destination="AcJ-sM-4F8" kind="relationship" relationship="detailViewController" id="HBM-T5-ai0"/>

@@ -2,6 +2,7 @@ struct RssItem {
     var title: String
     var description: String
     var pubDate: String
+    var link: String
 }
 
 import UIKit
@@ -25,6 +26,13 @@ class MXMLParser: NSObject, XMLParserDelegate {
             currentPubDate = currentPubDate.trimmingCharacters(in:CharacterSet.whitespacesAndNewlines)
         }
     }
+    
+    private var currentLink: String = "" {
+        didSet {
+            currentLink = currentLink.trimmingCharacters(in:CharacterSet.whitespacesAndNewlines)
+        }
+    }
+    
     private var parserCompletionHandler: (([RssItem]) -> Void)?
     
     func parseFeed(url: String, completionHandler: (([RssItem]) -> Void)?){
@@ -56,6 +64,7 @@ class MXMLParser: NSObject, XMLParserDelegate {
             currentTitle = ""
             currentDescription = ""
             currentPubDate = ""
+            currentLink = ""
         }
     }
     
@@ -64,13 +73,14 @@ class MXMLParser: NSObject, XMLParserDelegate {
         case "title": currentTitle += string
         case "description": currentDescription += string
         case "pubDate": currentPubDate += string
+        case "link": currentLink += string
         default: break
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item"{
-            let rssItem = RssItem(title: currentTitle, description: currentDescription, pubDate: currentPubDate)
+            let rssItem = RssItem(title: currentTitle, description: currentDescription, pubDate: currentPubDate, link: currentLink)
             self.rssItems.append(rssItem)
         }
     }
