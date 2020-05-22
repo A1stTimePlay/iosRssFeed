@@ -1,18 +1,21 @@
 import UIKit
+import CoreData
 
 class TopicsTableViewController: UITableViewController, XMLParserDelegate {
     
     private var rssItems: [RssItem]?
+    private var rssFeeds: [NSManagedObject] = []
+    private let coreDataService = CoreDataService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchData()
+        rssFeeds = coreDataService.loadData()
+        fetchData(url:"https://developer.apple.com/news/rss/news.rss")
     }
     
-    private func fetchData(){
+    private func fetchData(url: String){
         let feedParser = MXMLParser()
-        feedParser.parseFeed(url: "https://developer.apple.com/news/rss/news.rss") { (rssItems) in
+        feedParser.parseFeed(url: url) { (rssItems) in
             self.rssItems = rssItems
             OperationQueue.main.addOperation {
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
@@ -20,6 +23,33 @@ class TopicsTableViewController: UITableViewController, XMLParserDelegate {
         }
     }
 
+    @IBAction func addRssLink(_ sender: Any) {
+        let alert = UIAlertController(title: "New RSS Feed", message: "", preferredStyle: .alert)
+        
+        alert.addTextField()
+        alert.textFields![0].placeholder = "RSS Name"
+        
+        alert.addTextField()
+        alert.textFields![1].placeholder = "RSS URL"
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
+        alert.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default) { action in
+            guard let tfName = alert.textFields?[0], let feedName = tfName.text else {
+                return
+            }
+            guard let tfUrl = alert.textFields?[1], let feedUrl = tfUrl.text else {
+                return
+            }
+            self.coreDataService.saveData(name: feedName, url: feedUrl)
+        }
+        alert.addAction(saveAction)
+
+        self.present(alert, animated: true)
+    
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

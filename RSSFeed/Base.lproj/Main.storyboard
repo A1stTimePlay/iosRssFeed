@@ -102,7 +102,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Appcoda Tutorial" id="j6a-1c-ACH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fBM-Pc-YQZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fBM-Pc-YQZ">
+                            <connections>
+                                <action selector="addRssLink:" destination="aHu-pK-AvV" id="2EN-Hd-5fE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4U-9t-avB" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,7 @@
 		D6CB200A2466F2F3008D1EAC /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CB20092466F2F3008D1EAC /* TopicsTableViewController.swift */; };
 		D6CB200C2466F310008D1EAC /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CB200B2466F310008D1EAC /* TutorialViewController.swift */; };
 		D6CB200E2466F32D008D1EAC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CB200D2466F32D008D1EAC /* ContainerViewController.swift */; };
+		D6CCB7A6247853B60053C936 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CCB7A5247853B60053C936 /* CoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D6CB20092466F2F3008D1EAC /* TopicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
 		D6CB200B2466F310008D1EAC /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		D6CB200D2466F32D008D1EAC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		D6CCB7A5247853B60053C936 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				D6CB20002466F283008D1EAC /* LaunchScreen.storyboard */,
 				D6CB20032466F284008D1EAC /* Info.plist */,
 				D6CB1FFB2466F282008D1EAC /* RSSFeed.xcdatamodeld */,
+				D6CCB7A5247853B60053C936 /* CoreDataService.swift */,
 			);
 			path = RSSFeed;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CCB7A6247853B60053C936 /* CoreDataService.swift in Sources */,
 				D6CB1FFD2466F282008D1EAC /* RSSFeed.xcdatamodeld in Sources */,
 				D6CB200C2466F310008D1EAC /* TutorialViewController.swift in Sources */,
 				D6CB1FF52466F282008D1EAC /* AppDelegate.swift in Sources */,
