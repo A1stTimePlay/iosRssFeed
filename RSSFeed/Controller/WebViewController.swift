@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class TutorialViewController: UIViewController {
+class WebViewController: UIViewController {
     
     var tutorialUrl: URL!
     

@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class TopicsTableViewController: UITableViewController, XMLParserDelegate {
+class HomeViewController: UITableViewController, XMLParserDelegate {
     
     private var rssItems: [RssItem]?
     private var rssFeeds: [NSManagedObject] = []
@@ -23,34 +23,7 @@ class TopicsTableViewController: UITableViewController, XMLParserDelegate {
         }
     }
 
-    @IBAction func addRssLink(_ sender: Any) {
-        let alert = UIAlertController(title: "New RSS Feed", message: "", preferredStyle: .alert)
-        
-        alert.addTextField()
-        alert.textFields![0].placeholder = "RSS Name"
-        
-        alert.addTextField()
-        alert.textFields![1].placeholder = "RSS URL"
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
-        alert.addAction(cancelAction)
-        
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default) { action in
-            guard let tfName = alert.textFields?[0], let feedName = tfName.text else {
-                return
-            }
-            guard let tfUrl = alert.textFields?[1], let feedUrl = tfUrl.text else {
-                return
-            }
-            self.coreDataService.saveData(name: feedName, url: feedUrl)
-        }
-        alert.addAction(saveAction)
-
-        self.present(alert, animated: true)
-    
-    }
-    
-    // MARK: - Table view data source
+    // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -78,9 +51,40 @@ class TopicsTableViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = rssItems![indexPath.row] as RssItem
-        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTutorialViewController") as! TutorialViewController
+        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTutorialViewController") as! WebViewController
         tutorialViewController.tutorialUrl = URL(string: selected.link)
         showDetailViewController(tutorialViewController, sender: self)
     }
+    
+    // MARK: Action
 
+    @IBAction func addRssLink(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "New RSS Feed", message: "", preferredStyle: .alert)
+        
+        alert.addTextField()
+        alert.textFields![0].placeholder = "RSS Name"
+        
+        alert.addTextField()
+        alert.textFields![1].placeholder = "RSS URL"
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
+        alert.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default) { action in
+            guard let tfName = alert.textFields?[0], let feedName = tfName.text else {
+                return
+            }
+            guard let tfUrl = alert.textFields?[1], let feedUrl = tfUrl.text else {
+                return
+            }
+            self.coreDataService.saveData(name: feedName, url: feedUrl)
+        }
+        alert.addAction(saveAction)
+        
+        self.present(alert, animated: true)
+        
+    }
+    
+    @IBAction func showBookmark(_ sender: UIBarButtonItem) {
+    }
 }

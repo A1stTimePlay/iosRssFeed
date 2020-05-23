@@ -21,14 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         splitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idSplitViewController") as? UISplitViewController
         splitViewController?.delegate = self
-        
-        splitViewController?.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
-        
+                
         let containerViewController : ContainerViewController = ContainerViewController()
         containerViewController.setEmbeddedViewController(splitViewController: splitViewController)
         
         window?.rootViewController = containerViewController
-        
         
         return true
     }
