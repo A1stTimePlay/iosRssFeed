@@ -5,15 +5,17 @@ class HomeViewController: UITableViewController, XMLParserDelegate {
     
     private var rssItems: [RssItem]?
     private let coreDataService = CoreDataService()
-    var url: String?
+    var viewUrl: String?
+    var viewTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData(url: url)
+        fetchData(title: viewTitle, url: viewUrl)
     }
     
-    private func fetchData(url: String?){
+    private func fetchData(title: String?, url: String?){
         let feedParser = MXMLParser()
+        let parsedTitle = title ?? "Default Feed"
         let parsedUrl = url ?? "https://developer.apple.com/news/rss/news.rss"
         feedParser.parseFeed(url: parsedUrl) { (rssItems) in
             self.rssItems = rssItems
@@ -21,6 +23,7 @@ class HomeViewController: UITableViewController, XMLParserDelegate {
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
             }
         }
+        self.title = parsedTitle
     }
 
     // MARK: Table view data source
@@ -51,7 +54,7 @@ class HomeViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = rssItems![indexPath.row] as RssItem
-        let webViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTutorialViewController") as! WebViewController
+        let webViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idWebViewController") as! WebViewController
         webViewController.tutorialUrl = URL(string: selected.link)
         showDetailViewController(webViewController, sender: self)
     }

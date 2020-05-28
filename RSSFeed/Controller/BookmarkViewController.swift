@@ -39,7 +39,8 @@ class BookmarkViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = rssFeeds![indexPath.row]
         let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idHomeViewController") as! HomeViewController
-        homeViewController.url = selected.value(forKeyPath: "url") as? String
+        homeViewController.viewTitle = selected.value(forKeyPath: "name") as? String
+        homeViewController.viewUrl = selected.value(forKeyPath: "url") as? String
         showDetailViewController(homeViewController, sender: self)
     }
 }
