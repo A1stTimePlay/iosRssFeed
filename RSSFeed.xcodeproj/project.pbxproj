@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D64EA33C24796405006696B7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64EA33B24796405006696B7 /* MenuViewController.swift */; };
+		D64EA33C24796405006696B7 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64EA33B24796405006696B7 /* BookmarkViewController.swift */; };
 		D6C1487524683781007235FF /* MXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1487424683781007235FF /* MXMLParser.swift */; };
 		D6C1487824684E5A007235FF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6C1487724684E5A007235FF /* WebKit.framework */; };
 		D6CB1FF52466F282008D1EAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CB1FF42466F282008D1EAC /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D64EA33B24796405006696B7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		D64EA33B24796405006696B7 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		D6C1487424683781007235FF /* MXMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXMLParser.swift; sourceTree = "<group>"; };
 		D6C1487724684E5A007235FF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D6CB1FF12466F282008D1EAC /* RSSFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 				D6CB20092466F2F3008D1EAC /* HomeViewController.swift */,
 				D6CB200B2466F310008D1EAC /* WebViewController.swift */,
 				D6CB200D2466F32D008D1EAC /* ContainerViewController.swift */,
-				D64EA33B24796405006696B7 /* MenuViewController.swift */,
+				D64EA33B24796405006696B7 /* BookmarkViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6CCB7A6247853B60053C936 /* CoreDataService.swift in Sources */,
-				D64EA33C24796405006696B7 /* MenuViewController.swift in Sources */,
+				D64EA33C24796405006696B7 /* BookmarkViewController.swift in Sources */,
 				D6CB1FFD2466F282008D1EAC /* RSSFeed.xcdatamodeld in Sources */,
 				D6CB200C2466F310008D1EAC /* WebViewController.swift in Sources */,
 				D6CB1FF52466F282008D1EAC /* AppDelegate.swift in Sources */,

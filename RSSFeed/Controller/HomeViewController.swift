@@ -4,18 +4,18 @@ import CoreData
 class HomeViewController: UITableViewController, XMLParserDelegate {
     
     private var rssItems: [RssItem]?
-    private var rssFeeds: [NSManagedObject] = []
     private let coreDataService = CoreDataService()
+    private var url: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        rssFeeds = coreDataService.loadData()
-        fetchData(url:"https://developer.apple.com/news/rss/news.rss")
+        fetchData(url: url)
     }
     
-    private func fetchData(url: String){
+    private func fetchData(url: String?){
         let feedParser = MXMLParser()
-        feedParser.parseFeed(url: url) { (rssItems) in
+        let parsedUrl = url ?? "https://developer.apple.com/news/rss/news.rss"
+        feedParser.parseFeed(url: parsedUrl) { (rssItems) in
             self.rssItems = rssItems
             OperationQueue.main.addOperation {
                 self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
