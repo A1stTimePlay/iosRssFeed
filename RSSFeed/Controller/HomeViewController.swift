@@ -5,7 +5,7 @@ class HomeViewController: UITableViewController, XMLParserDelegate {
     
     private var rssItems: [RssItem]?
     private let coreDataService = CoreDataService()
-    private var url: String?
+    var url: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +51,9 @@ class HomeViewController: UITableViewController, XMLParserDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = rssItems![indexPath.row] as RssItem
-        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTutorialViewController") as! WebViewController
-        tutorialViewController.tutorialUrl = URL(string: selected.link)
-        showDetailViewController(tutorialViewController, sender: self)
+        let webViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idTutorialViewController") as! WebViewController
+        webViewController.tutorialUrl = URL(string: selected.link)
+        showDetailViewController(webViewController, sender: self)
     }
     
     // MARK: Action

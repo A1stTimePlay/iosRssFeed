@@ -33,11 +33,13 @@ class BookmarkViewController: UITableViewController {
         if let feed = rssFeeds?[indexPath.item] {
             cell.textLabel?.text = feed.value(forKeyPath: "name") as? String
         }
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Hello world")
+        let selected = rssFeeds![indexPath.row]
+        let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idHomeViewController") as! HomeViewController
+        homeViewController.url = selected.value(forKeyPath: "url") as? String
+        showDetailViewController(homeViewController, sender: self)
     }
 }
