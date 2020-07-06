@@ -9,6 +9,8 @@ import UIKit
 
 class MXMLParser: NSObject, XMLParserDelegate {
     
+    // Take care of XML data parsing operation
+    
     private var rssItems: [RssItem] = []
     private var currentElement = ""
     private var currentTitle: String = "" {
