@@ -4,6 +4,8 @@ import UIKit
 
 class CoreDataService: NSObject {
     
+    // Take care of Core Data operation
+    
     private var rssFeeds: [NSManagedObject] = []
     
     func loadData() -> [NSManagedObject] {
