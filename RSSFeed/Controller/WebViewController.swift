@@ -11,6 +11,8 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    // Second view of Split view
+    
     var tutorialUrl: URL!
     
     var tutorialsButtonItem : UIBarButtonItem!
@@ -60,6 +62,7 @@ class WebViewController: UIViewController {
         }
     }
     
+    // Full screen mode
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if previousTraitCollection?.verticalSizeClass == UIUserInterfaceSizeClass.compact{
             let firstItem = toolbar.items?[0]
